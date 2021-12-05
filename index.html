@@ -1,0 +1,827 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Education</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+        <div id="pageloder">
+            <div class="spinner-border text-info loder-icon" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+        </div>
+
+
+        <!-- login form Model -->
+        <div class="modal fade" id="loginModel" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center">Login To Continue</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="login" style="margin: auto">
+                            <div class="card shadow">
+                                <div class="modal-header d-block text-center border-0 py-4">
+                                    <h5 class="modal-title">Login<b></b></h5>
+                                </div>
+                                    <div class="modal-body px-sm-4 py-0">
+                                        <form action="" method="POST">
+                                            <div class="user_form">
+                                                <div class="social">
+                                                    <a class="facebook" href="#"><span class="socialicon"><i width="18" height="18" class="bi bi-facebook"></i></span>
+                                                        <span class="socialtext">Continue With Facebook</span>
+                                                    </a>
+                                                    <a class="google" href="#"><span class="socialicon">
+                                                        <svg width="18" height="18"
+                                                        viewBox="0 0 18 19" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9 7.84363V11.307H13.8438C13.6365 12.428 12.9994 13.373 12.0489 14.0064V16.2534H14.9562C16.6601 14.6951 17.641 12.4029 17.641 9.67839C17.641 9.04502 17.5854 8.43176 17.4792 7.84865H9V7.84363Z" fill="#3E82F1"></path>
+                                                        <path d="M9.00001 14.861C6.65394 14.861 4.67192 13.2876 3.96406 11.1714H0.955627V13.4937C2.43709 16.4142 5.48091 18.4198 9.00001 18.4198C11.432 18.4198 13.4697 17.6206 14.9562 16.2533L12.0489 14.0064C11.245 14.5443 10.2135 14.861 9.00001 14.861Z" fill="#32A753"></path>
+                                                        <path d="M3.96404 5.45605H0.955617C0.348876 6.66246 0 8.02972 0 9.47238C0 10.915 0.348876 12.2823 0.955617 13.4887L3.96404 11.1714C3.78202 10.6335 3.6809 10.0605 3.6809 9.47238C3.6809 8.88426 3.78202 8.31122 3.96404 7.77336V5.45605Z" fill="#F9BB00"></path>
+                                                        <path d="M0.955627 5.45597L3.96406 7.77327C4.67192 5.65703 6.65394 4.08368 9.00001 4.08368C10.3197 4.08368 11.5079 4.53608 12.4382 5.42078L15.0219 2.85214C13.4646 1.40948 11.427 0.52478 9.00001 0.52478C5.48091 0.52478 2.43709 2.53043 0.955627 5.45597Z" fill="#E74133"></path>
+                                                        </svg></span><span class="socialtext">Continue With Google</span>
+                                                    </a>
+                                                </div>
+                                                <div class="or">
+                                                    <span>OR</span>
+                                                </div>
+                                                <div class="form-group pb-3">
+                                                    <input type="text" placeholder="Username" name="username" class="forminput" required>
+                                                </div>
+                                                <div class="form-group pb-3">
+                                                    <input type="password" placeholder="Password" name="password" class="forminput" required>
+                                                    <span class="text-danger"></span>
+                                                </div>
+                                                <button type="submit" class="forminput btn pb-2">Continue</button>
+                                                <div class="forgot-password mt-2 pb-2">
+                                                    <span class="checkbox"><input type="checkbox" name="check" id="check"> <label for="check">Remember Me</label></span>
+                                                    <a href="#">Forgot Password?</a>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer px-sm-4 text-center">
+                                        <p class="formfooter">Not a member yet? <a href="#" style="color:#19a463;" id="userlogin">Sign Up</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- signup form Model -->
+        <div class="modal fade" id="signupModel" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title text-center">SignUp To Continue</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="signup" style="margin: auto">
+                            <div class="card shadow">
+                                    <div class="modal-header d-block text-center border-0 py-4">
+                                        <h4 class="modal-title"><b>Sign Up</b></h4>
+                                    </div>
+                                    <div class="modal-body px-sm-4 py-0">
+                                        <form action="" method="post">
+                        
+                                            <div class="user_form">
+                                                <div class="social">
+                                                    <a class="facebook" href="#"><span class="socialicon"><i width="18" height="18" class="bi bi-facebook"></i></span>
+                                                        <span class="socialtext">Continue With Facebook</span>
+                                                    </a>
+                                                    <a class="google" href="#"><span class="socialicon"><svg width="18" height="18"
+                                                        viewBox="0 0 18 19" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9 7.84363V11.307H13.8438C13.6365 12.428 12.9994 13.373 12.0489 14.0064V16.2534H14.9562C16.6601 14.6951 17.641 12.4029 17.641 9.67839C17.641 9.04502 17.5854 8.43176 17.4792 7.84865H9V7.84363Z" fill="#3E82F1"></path>
+                                                        <path d="M9.00001 14.861C6.65394 14.861 4.67192 13.2876 3.96406 11.1714H0.955627V13.4937C2.43709 16.4142 5.48091 18.4198 9.00001 18.4198C11.432 18.4198 13.4697 17.6206 14.9562 16.2533L12.0489 14.0064C11.245 14.5443 10.2135 14.861 9.00001 14.861Z" fill="#32A753"></path>
+                                                        <path d="M3.96404 5.45605H0.955617C0.348876 6.66246 0 8.02972 0 9.47238C0 10.915 0.348876 12.2823 0.955617 13.4887L3.96404 11.1714C3.78202 10.6335 3.6809 10.0605 3.6809 9.47238C3.6809 8.88426 3.78202 8.31122 3.96404 7.77336V5.45605Z" fill="#F9BB00"></path>
+                                                        <path d="M0.955627 5.45597L3.96406 7.77327C4.67192 5.65703 6.65394 4.08368 9.00001 4.08368C10.3197 4.08368 11.5079 4.53608 12.4382 5.42078L15.0219 2.85214C13.4646 1.40948 11.427 0.52478 9.00001 0.52478C5.48091 0.52478 2.43709 2.53043 0.955627 5.45597Z" fill="#E74133"></path>
+                                                        </svg></span><span class="socialtext">Continue With Google</span>
+                                                    </a>
+                                                </div>
+                        
+                                                <div class="or">
+                                                    <span>OR</span>
+                                                </div>
+                        
+                                                <div class="form-group pb-2">
+                                                    <input type="text" placeholder="User Name" name="username" class="forminput" required>
+                                                </div>
+                                                <div class="form-group pb-2">
+                                                    <input type="email" placeholder="Email" name="email" class="forminput" required>
+                                                </div>
+                                                <div class="form-group pb-2">
+                                                    <input type="password" placeholder="Password" name="password" class="forminput" required>
+                                                </div>
+                                                <div class="form-group pb-2">
+                                                    <input type="password" placeholder="Confirm Password" name="cpassword" class="forminput" required>
+                                                   <span style="color: red;font-size: 16px"></span>
+                                                </div>
+                        
+                                                <button type="submit" class="forminput btn pb-2">Continue</button>
+                        
+                                                <p style="font-size: 13px; font-weight:600;" class="mt-2">I agree to receive emails from This Site</p>
+                                            </div>
+                                        </form>
+                                    </div>
+                        
+                                    <div class="modal-footer px-sm-4 text-center">
+                                        <p class="formfooter">Already a member? <a href="#" style="color:#19a463;">Login</a></p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+
+
+
+
+
+
+
+
+   <div id="wrappar" >
+    <div class="navbertop d-none d-md-block">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-2 col-sm-3 top-icon py-2">
+                    <a class="socialIcon" href="#"><i class="bi bi-twitter"></i></a>
+                    <a class="socialIcon" href="#"><i class="bi bi-facebook"></i></a>
+                    <a class="socialIcon" href="#"><i class="bi bi-linkedin"></i></a>
+                    <a class="socialIcon" href="#"><i class="bi bi-google"></i></a>
+                </div>
+                <div class="col-10 col-sm-9 py-1 fw-bolder">
+                    <span class="px-2"><i class="bi bi-envelope-fill"></i> arafataliar69@gmail.com </span>
+                    <span class="ms-2"><i class="bi bi-phone-fill"></i> 01704039173</span>
+                    <div class=" d-inline-flex float-end m-0 p-0">
+                        <span class="log-in pe-md-3">
+                            <p class="logItem" data-bs-toggle="modal" data-bs-target="#loginModel"> <i class="bi bi-person"></i> Login</p>
+                        </span>
+                        <span class="register p-0 m-0">
+                            <p class="logItem" data-bs-toggle="modal" data-bs-target="#signupModel"> <i class="bi bi-lock"></i> Register</p>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light p-0 bg-white">
+        <div class="container-fluid">
+            <a class="navbar-brand bg-light p-4" href="#">
+                <img src="image/download.webp">
+            </a>
+            <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="collapsibleNavId">
+                <ul class="navbar-nav me-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Course</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Instructors</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Blog</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact</a>
+                    </li>
+                </ul>
+                <form class="d-flex my-2 my-lg-0">
+                    <input class="form-control searchbox" type="text" placeholder="Search">
+                    <button class="btn btn-outline-success searchbtn" type="submit"><i class="bi bi-search"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="hero-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <p class="course-tittle mt-5">Popular Online Courses</p>
+                        <h1 class="about-text22 mt-5">The New Way To Learn Properly in With Us !</h1>
+                        <div class="main-btn mt-5">
+                            <button>Get Started
+                                <div class="submain-btn"> </div>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- our-courses -->
+    <div class="our-courses">
+        <p class="courese-head">Popular Online Courses</p>
+        <h1>Lets Brows All Catagori</h1>
+        <div class="container">
+            <div class="row mt-4">
+                <div class="col-md-4 p-3">
+                    <div class="main-item text-center">
+                        <div class="course-icon">
+                            <i class="bi bi-credit-card-2-front-fill"></i>
+                        </div>
+                        <h4 class="courses-name mt-2">Web Design</h4>
+                        <p class="courses-text">Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do
+                            eiusmod tempor incidi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla
+                            excepturi ipsam aliquid laudantium maiores similique!</p>
+                        <div class="readmore-btn pb-4">
+                            <button>Read More <i class="bi bi-chevron-right p-0"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4  p-3">
+                    <div class="main-item text-center">
+                        <div class="course-icon">
+                            <i class="bi bi-pip-fill"></i>
+                        </div>
+                        <h4 class="courses-name mt-2">App Development</h4>
+                        <p class="courses-text">Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do
+                            eiusmod tempor incidi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla
+                            excepturi ipsam aliquid laudantium maiores similique!</p>
+                        <div class="readmore-btn pb-4">
+                            <button>Read More <i class="bi bi-chevron-right p-0"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4  p-3">
+                    <div class="main-item text-center">
+                        <div class="course-icon">
+                            <i class="bi bi-film"></i>
+                        </div>
+                        <h4 class="courses-name mt-2">Video Editing</h4>
+                        <p class="courses-text">Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do
+                            eiusmod tempor incidi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla
+                            excepturi ipsam aliquid laudantium maiores similique!</p>
+                        <div class="readmore-btn pb-4">
+                            <button>Read More <i class="bi bi-chevron-right p-0"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4  p-3">
+                    <div class="main-item text-center">
+                        <div class="course-icon">
+                            <i class="bi bi-laptop-fill"></i>
+                        </div>
+                        <h4 class="courses-name mt-2">Digital Marketing</h4>
+                        <p class="courses-text">Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do
+                            eiusmod tempor incidi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla
+                            excepturi ipsam aliquid laudantium maiores similique!</p>
+                        <div class="readmore-btn pb-4">
+                            <button>Read More <i class="bi bi-chevron-right p-0"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4  p-3">
+                    <div class="main-item text-center">
+                        <div class="course-icon">
+                            <i class="bi bi-journal-richtext"></i>
+                        </div>
+                        <h4 class="courses-name mt-2">Seo Marketing</h4>
+                        <p class="courses-text">Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do
+                            eiusmod tempor incidi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla
+                            excepturi ipsam aliquid laudantium maiores similique!</p>
+                        <div class="readmore-btn pb-4">
+                            <button>Read More <i class="bi bi-chevron-right p-0"></i></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4  p-3">
+                    <div class="main-item text-center">
+                        <div class="course-icon">
+                            <i class="bi bi-lightbulb-off-fill"></i>
+                        </div>
+                        <h4 class="courses-name mt-2">Content Writing</h4>
+                        <p class="courses-text">Sorem hpsum folor sixdsft amhtget, consectetur adipiscing eliht, sed do
+                            eiusmod tempor incidi. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nulla
+                            excepturi ipsam aliquid laudantium maiores similique!</p>
+                        <div class="readmore-btn pb-4">
+                            <button>Read More <i class="bi bi-chevron-right p-0"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="main-btn mt-5 text-center">
+                    <button class="more-coursebtn">Find More Course
+                        <div class="submain-btn"> </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- coundown-item -->
+    <div class="coundown-item mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <div class="coundown-item">
+                        <div class="counterIcon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <div class="countertext">
+                            <span class="countfect" data-num="1050"></span> <span>+ Topics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="coundown-item coundown-item2">
+                        <div class="counterIcon">
+                            <i class="bi bi-person-square"></i>
+                        </div>
+                        <div class="countertext">
+                            <span class="countfect" data-num="1050"></span> <span>+ Topics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="coundown-item coundown-item3">
+                        <div class="counterIcon">
+                            <i class="bi bi-card-list"></i>
+                        </div>
+                        <div class="countertext">
+                            <span class="countfect" data-num="1050"></span> <span>+ Topics</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 text-center">
+                    <div class="coundown-item coundown-item4">
+                        <div class="counterIcon">
+                            <i class="bi bi-journal-medical"></i>
+                        </div>
+                        <div class="countertext">
+                            <span class="countfect" data-num="1050"></span> <span>+ Topics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Our Popular Course -->
+    <div class="popular-course">
+        <p class="courese-head">Most Popular Course Of This Week</p>
+        <h1>Our Popular Course</h1>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-4  py-3">
+                    <div class="maincard-item">
+                        <div class="card ">
+                            <div class="card-img">
+                                <img src="image/card1.png" alt="" width="100%">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="card-text">Graphic Design</h3>
+                                        <div class="card-item">
+                                            <div class="card-iconitem mt-4">
+                                                <span><i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i></span>
+                                                <span class="icon-review">52 Review</span>
+                                            </div>
+                                        </div>
+                                        <div class="cardicon2 mt-4 pb-5">
+                                            <span><i class="bi bi-person"></i> 506</span>
+                                            <span><i class="bi bi-heart"></i> 506</span>
+                                            <span class="icon-review">Free</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4  py-3">
+                    <div class="maincard-item">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="image/card22.png" alt="" width="100%">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="card-text">Web Development</h3>
+                                        <div class="card-item">
+                                            <div class="card-iconitem mt-4">
+                                                <span><i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i></span>
+                                                <span class="icon-review">52 Review</span>
+                                            </div>
+                                        </div>
+                                        <div class="cardicon2 mt-4 pb-5">
+                                            <span><i class="bi bi-person"></i> 506</span>
+                                            <span><i class="bi bi-heart"></i> 506</span>
+                                            <span class="icon-review">Free</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4  py-3">
+                    <div class="maincard-item">
+                        <div class="card">
+                            <div class="card-img">
+                                <img src="image/card3.png" alt="" width="100%">
+                            </div>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3 class="card-text">Digital Marketing</h3>
+                                        <div class="card-item">
+                                            <div class="card-iconitem mt-4">
+                                                <span><i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i>
+                                                    <i class="bi bi-star-fill"></i></span>
+                                                <span class="icon-review">52 Review</span>
+                                            </div>
+                                        </div>
+                                        <div class="cardicon2 mt-4 pb-5">
+                                            <span><i class="bi bi-person"></i> 506</span>
+                                            <span><i class="bi bi-heart"></i> 506</span>
+                                            <span class="icon-review">Free</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-btn  text-center mt-5 card-button">
+                <button>Find More Course
+                    <div class="submain-btn"> </div>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- our-teacher -->
+    <div class="our-teacheritem">
+        <p class=" title text-center"> More About Our Faculty</p>
+        <h1>Our Best Teachers</h1>
+        <div class="container">
+            <div class="row mt-5">
+                <div class="col-md-3 col-sm-6  py-3">
+                    <div class="card teacher-card overflow-hidden rounded-0">
+                        <div class="teacher-cardimg overflow-hidden position-relative">
+                            <img src="image/xteam1.png.pagespeed.ic.XP8FuCEpbp.webp" alt="" width="100%">
+                            <div class="teacher-cardicon position-absolute ">
+                                <a href="#"> <i class="bi bi-facebook"></i></a>
+                                <a href="#"> <i class="bi bi-twitter"></i></a>
+                                <a href="#"> <i class="bi bi-globe2"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="name-tittle text-center pt-3">Alexa Janathon</h3>
+                        <p class="descrip text-center">Faculty</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6  py-3">
+                    <div class="card teacher-card overflow-hidden rounded-0">
+                        <div class="teacher-cardimg overflow-hidden position-relative">
+                            <img src="image/xteam2.png.pagespeed.ic.DkAYUTIFKv.webp" alt="" width="100%">
+                            <div class="teacher-cardicon position-absolute ">
+                                <a href="#"> <i class="bi bi-facebook"></i></a>
+                                <a href="#"> <i class="bi bi-twitter"></i></a>
+                                <a href="#"> <i class="bi bi-globe2"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="name-tittle text-center pt-3">Janathon Smith</h3>
+                        <p class="descrip text-center">Faculty</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6  py-3">
+                    <div class="card teacher-card overflow-hidden rounded-0">
+                        <div class="teacher-cardimg overflow-hidden position-relative">
+                            <img src="image/xteam3.png.pagespeed.ic.ZjKltUw-pd.png" alt="" width="100%">
+                            <div class="teacher-cardicon position-absolute ">
+                                <a href="#"> <i class="bi bi-facebook"></i></a>
+                                <a href="#"> <i class="bi bi-twitter"></i></a>
+                                <a href="#"> <i class="bi bi-globe2"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="name-tittle text-center pt-3">Alexa MacCalum</h3>
+                        <p class="descrip text-center">Faculty</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6  py-3">
+                    <div class="card teacher-card overflow-hidden rounded-0">
+                        <div class="teacher-cardimg overflow-hidden position-relative">
+                            <img src="image/xteam4.png.pagespeed.ic.klxTBb6pMG.webp" alt="" width="100%">
+                            <div class="teacher-cardicon position-absolute ">
+                                <a href="#"> <i class="bi bi-facebook"></i></a>
+                                <a href="#"> <i class="bi bi-twitter"></i></a>
+                                <a href="#"> <i class="bi bi-globe2"></i></a>
+                            </div>
+                        </div>
+                        <h3 class="name-tittle text-center pt-3">Alexa j Watson</h3>
+                        <p class="descrip text-center">Faculty</p>
+                    </div>
+                </div>
+            </div>
+            <div class="more-btn text-center py-5">
+                <a href="#" class="button btn rounded-0 my-5">View All Faculty </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- about-us -->
+    <div class="about-us ">
+        <div class="container">
+            <div class="row ">
+                <div class="col-md-6  py-3">
+                    <p class="about-tittle">More About Our Company</p>
+                    <h2 class="about-tittle2">Want to know more</h2>
+                    <p class="about-text">There arge many variations ohf passages of sorem gpsum ilable, but the
+                        majority have suffered alteration in some form, by ected humour, or randomised words whi.</p>
+
+                    <p class="about-icon"><span><i class="bi bi-person-fill"></i></span> Assages of sorem gpsum ilable
+                    </p>
+                    <p class="about-icon"><span><i class="bi bi-stack"></i></span> Have suffered alteration in so</p>
+                    <p class="about-icon"><span><i class="bi bi-lightbulb"></i></span> Creative ideas base</p>
+                    <p class="about-icon"><span><i class="bi bi-file-richtext"></i></span> Randomised words whi</p>
+
+                    <div class="main-btn mt-5 ">
+                        <button class="more-coursebtn">More About Us
+                            <div class="submain-btn"> </div>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-md-6  py-3">
+                    <div class="about-img  d-flex">
+                        <img class="px-3" src="image/about1.webp" alt="" width="60%">
+                        <img class="pt-5" src="image/about2.webp" alt="" width="60%">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- carojol-item -->
+    <div class="carojol-item">
+        <div id="carouselExampleInterval" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <div class="carojol-pic">
+                        <img src="image/carojol-pic.png" class="d-block " alt="...">
+                    </div>
+                    <p class="carojol-text text-center">You can’t succeed if you just do what others do and
+                        follow <br> the well-worn path. You need to create a new and
+                        original <br> path for yourself. </p>
+
+                    <div class="card-iconitem mt-4 text-center">
+                        <span><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i></span>
+
+                    </div>
+                    <div class="carojol-colifort">
+                        <span> CLIFFORD FRAZIER<span class="color-theme"> - Colorlib Themes</span> </span>
+                    </div>
+
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+
+                    <div class="carojol-pic">
+                        <img src="image/carojol-pic.png" class="d-block " alt="...">
+                    </div>
+                    <p class="carojol-text text-center">You can’t succeed if you just do what others do and
+                        follow <br> the well-worn path. You need to create a new and
+                        original <br> path for yourself. </p>
+
+                    <div class="card-iconitem mt-4 text-center">
+                        <span><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i></span>
+
+                    </div>
+                    <div class="carojol-colifort">
+                        <span> CLIFFORD FRAZIER<span class="color-theme"> - Colorlib Themes</span> </span>
+                    </div>
+
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+
+                    <div class="carojol-pic">
+                        <img src="image/carojol-pic.png" class="d-block " alt="...">
+                    </div>
+                    <p class="carojol-text text-center">You can’t succeed if you just do what others do and
+                        follow <br> the well-worn path. You need to create a new and
+                        original <br> path for yourself. </p>
+
+                    <div class="card-iconitem mt-4 text-center">
+                        <span><i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i></span>
+
+                    </div>
+                    <div class="carojol-colifort">
+                        <span> CLIFFORD FRAZIER<span class="color-theme"> - Colorlib Themes</span> </span>
+                    </div>
+
+                </div>
+            </div>
+            <button class="carousel-control-prev carojol-npicon" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next carojol-npicon" type="button" data-bs-target="#carouselExampleInterval"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+    </div>
+
+    <!-- our-blog -->
+    <div class="our-blog pb-5 ">
+        <p class="blog-tittle text-center">Our Latest News From Our Blog</p>
+        <h2 class="blog-tittle2">Latest News From Blog</h2>
+        <div class="container">
+            <div class="row pt-5">
+                <div class="col-md-6  py-3">
+                    <div class="card ourBlogItem ">
+                        <div class="blog-cardimgblog overflow-hidden   ">
+                            <img src="image/blog-card1.webp" alt="" width="100%">
+                            <div class="bg-card">
+                                <p class="manth-text"> Nov</p>
+                                <p class="date-text">24</p>
+                            </div>
+                        </div>
+                        <div class="blog-cup pb-5 p-5">
+                            <p class="popertise "> | Properties</p>
+                            <h3 class="footorints"><a href="#">Footprints in Time is perfect House in Kurashiki</a></h3>
+                            <button class="blogcard-btn">READ MORE << </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 py-3">
+                    <div class="card ourBlogItem ">
+                        <div class="blog-cardimgblog overflow-hidden   ">
+                            <img src="image/blog-card2.webp" alt="" width="100%">
+                            <div class="bg-card">
+                                <p class="manth-text"> Nov</p>
+                                <p class="date-text">24</p>
+                            </div>
+                        </div>
+                        <div class="blog-cup pb-5 p-5">
+                            <p class="popertise "> | Properties</p>
+                            <h3 class="footorints"><a href="#">Footprints in Time is perfect House in
+                                    Kurashiki</a></h3>
+                            <button class="blogcard-btn">READ MORE << </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> <!-- footer-item -->
+    <div class="footer-item">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <p class="footer-stay">Stay Updated</p>
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Your email address">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Subcribe
+                            Now</button>
+                    </div>
+                </div>
+                <div class="col-md-6 text-center">
+                    <p class="footer-stay">Let’s Get Social</p>
+                    <div class="footer-icon">
+                        <a class="facebook" href="#"> <i class="bi bi-facebook "></i></a>
+                        <a class="twitter" href="#"> <i class="bi bi-twitter"></i></a>
+                        <a class="instragram" href="#"> <i class="bi bi-instagram"></i></a>
+                        <a class="google" href="#"> <i class="bi bi-google"></i></a>
+                        <a class="youtube" href="#"> <i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row  ">
+                <div class="col-md-3 py-2">
+                    <p class="aboutUs">About Us</p>
+                    <div class="aboutus-item">
+                        <a href="#"> Online Lerning</a>
+                        <a href="#"> About Us</a>
+                        <a href="#"> Careers</a>
+                        <a href="#"> Press Center </a>
+                        <a href="#"> Become An Instuctor</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <p class="aboutUs">Campus</p>
+                    <div class="aboutus-item">
+                        <a href="#"> Our Plans</a>
+                        <a href="#"> Free Trial</a>
+                        <a href="#"> Academic Solutions</a>
+                        <a href="#"> Business Solutions</a>
+                        <a href="#"> Government Solutions</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <p class="aboutUs">Study</p>
+                    <div class="aboutus-item">
+                        <a href="#"> Admissions Policy</a>
+                        <a href="#">Getting Started</a>
+                        <a href="#">Online Application</a>
+                        <a href="#">Visa Information</a>
+                        <a href="#">Tuition Calculator</a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <p class="aboutUs">Spport</p>
+                    <div class="aboutus-item">
+                        <a href="#"> Support</a>
+                        <a href="#">Contact Us</a>
+                        <a href="#">System Requirements</a>
+                        <a href="#">Register Activation Key</a>
+                        <a href="#">Site Feedback</a>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="color: #aaa;">
+            <div class="footer-end text-center">
+                <p class="py-4 m-0">
+                    Copyright ©2021 All rights reserved | This template is made 
+                    <span class="love-icon"> <i class="bi bi-heart-fill"></i></span> by <a href="#" class="athor">Arafat Ali</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- page-scroller -->
+    <span class="scrolltop"><i class="bi bi-arrow-bar-up"></i></span>
+
+</div>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js">
+    </script>
+    <script src="js/countfect.min.js"></script>
+    <script src="js/main.js"></script>
+
+
+ 
+ 
+
+</body>
+
+</html>
